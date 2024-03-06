@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import React  from 'react';
 import { exerciseOptions,fetchData } from "../utils/fetchData";
 import HorizontalScrollBar from "./HorizontalScrollBar";
+import { Link } from "react-router-dom";
 
 const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
     const [search,setSearch]=useState('');
@@ -31,7 +32,7 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
         }
     }
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" padding="20px">
+    <Stack alignItems="center" mt="37px" justifyContent="center" padding="20px" className="searchExercises">
         <Typography fontWeight="700" sx={{fontSize:{lg: '44px', xs:'30px'}}} mb='50px' textAlign='center'>
             Awesome Exercises You<br/> should Know
         </Typography>
@@ -51,7 +52,14 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
             />
             <Button className="search-btn" sx={{bgcolor:"#ff2625",color:"#fff", textTransform:"none" ,width:{lg:'175px', xs:"80px"},
             fontSize:{lg:'20px', xs:"14px"}, height:"56px", position:"absolute",right:'0'}} onClick={handleSearch}>
+                 <Link
+    to="exercises"
+    smooth={true}
+    duration={500}
+    style={{ textDecoration: "none", color: "#fff" }}
+  >
                 Search
+                </Link>
             </Button>
 
 

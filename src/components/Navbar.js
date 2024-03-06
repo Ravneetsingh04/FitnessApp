@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
 import Logo from "../assets/images/Logo.png";
+import { Link } from "react-scroll";
+
 const Navbar = () => {
   return (
     <Stack
@@ -11,10 +12,10 @@ const Navbar = () => {
         gap: { sm: "122px", xs: "40px" },
         mt: { sm: "32px", xs: "20px" },
         justifyContent: "none",
-        px:'20px'
+        px: '20px'
       }}
     >
-      <Link to="/">
+      <Link to="top" smooth={true} duration={500}>
         <img
           src={Logo}
           alt="logo"
@@ -23,21 +24,31 @@ const Navbar = () => {
       </Link>
       <Stack direction="row" alignItems="flex-end" gap="40px" fontSize="24px">
         <Link
-          to="/"
+          to="home"
+          smooth={true}
+          duration={500}
           style={{
             textDecoration: "none",
             color: "#3A1212",
             borderBottom: " 3px solid #FF2625",
+            cursor:"pointer"
           }}
         >
           Home
         </Link>
-        <a
-          href="#exercises"
-          style={{ textDecoration: "none", color: "#3A1212" }}
+        <Link
+          to="exercises"
+          smooth={true}
+          duration={500}
+          style={{
+            textDecoration: "none",
+            color: "#3A1212",
+            borderBottom: " 3px solid #FF2625",
+            cursor:'pointer'
+          }}
         >
           Exercises
-        </a>
+        </Link>
       </Stack>
     </Stack>
   );

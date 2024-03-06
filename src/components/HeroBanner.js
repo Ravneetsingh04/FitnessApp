@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import HeroBannerImg from "../assets/images/banner.png";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+
 
 const HeroBanner = () => {
   return (
@@ -23,19 +25,24 @@ const HeroBanner = () => {
       <Typography fontSize="22px" lineHeight="35px" mb={4}>
         Check out the most effective exercises
       </Typography>
-      <Button
-        variant="contained"
-        color="error"
-        href="#exercises"
-        behavior="smooth"
-        sx={{
-          backgroundColor: "#ff2625",
-          padding: "10px",
-          scrollBehavior: "smooth",
-        }}
-      >
-        Explore Exercises
-      </Button>
+      <ScrollLink
+  to="searchExercises"
+  smooth={true}
+  spy={true}
+  duration={500} // Set duration if you want to control scrolling speed
+>
+  <Button
+    variant="contained"
+    color="error"
+    sx={{
+      backgroundColor: "#ff2625",
+      padding: "10px",
+    }}
+  >
+    Go to exercises
+  </Button>
+</ScrollLink>
+
       <Typography
         fontWeight={600}
         color="#ff2625"
